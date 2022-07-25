@@ -1,19 +1,16 @@
-import type { User, Job } from "@prisma/client";
+import type { User, Job, Company } from "@prisma/client";
 
 import { prisma } from "~/db.server";
-import { Company } from "@faker-js/faker/modules/company";
 
 export type { Job } from "@prisma/client";
 
-export function getJob({
-  id,
-  userId,
-}: Pick<Job, "id"> & {
-  userId: User["id"];
-}) {
+export function getJob(id: string) {
   return prisma.job.findFirst({
-    select: { id: true, description: true, title: true },
-    where: { id, userId },
+    include: {
+      company: true,
+      user: true
+    },
+    where: { id },
   });
 }
 
