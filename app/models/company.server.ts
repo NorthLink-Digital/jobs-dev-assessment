@@ -14,3 +14,14 @@ export function getCompaniesWithUserId(userId: string) {
     }
   });
 }
+
+export function getCompanyData(companyId: string) {
+  return prisma.company.findUnique({
+    where: {
+      id: companyId
+    },
+    include: {
+      jobs: true
+    }
+  });
+}
