@@ -31,6 +31,18 @@ export function getJobListItems() {
   });
 }
 
+export function getJobsByCompanyID(companyId: string) {
+  return prisma.job.findMany({
+    where: {
+      companyId
+    },
+    include: {
+      user: true,
+    },
+    orderBy: { updatedAt: "desc" },
+  });
+}
+
 export function createJob({
   description,
   title,

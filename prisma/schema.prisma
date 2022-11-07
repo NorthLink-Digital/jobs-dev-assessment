@@ -31,6 +31,10 @@ model Company {
     id      String @id @default(cuid())
     name    String
     logoUrl String
+    address String
+    email   String
+    telephone String
+    blurb   String
 
     users   User[]
     jobs    Job[]

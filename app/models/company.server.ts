@@ -1,5 +1,13 @@
 import { prisma } from '~/db.server';
 
+export function getCompany (companyID: string) {
+  return prisma.company.findUniqueOrThrow({
+    where: {
+      id: companyID,
+    },
+  });
+}
+
 export function getCompaniesWithUserId(userId: string) {
   return prisma.company.findMany({
     where: {
