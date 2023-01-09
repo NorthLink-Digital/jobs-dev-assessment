@@ -8,6 +8,10 @@ of development. Don't worry about which task(s) to choose, just pick one(s) that
 The assessment is not designed to need intense algorithmic knowledge, nor is it designed to catch you out, but rather just
 allow us to see how you work and thought processes.
 
+## Environment
+
+Just rename the .env.example file to .env
+
 ## Development
 
 - This step only applies if you've opted out of having the CLI install dependencies for you:
